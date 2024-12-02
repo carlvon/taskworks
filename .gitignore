@@ -1,0 +1,55 @@
+# Node.js / npm
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# TypeScript
+*.tsbuildinfo
+dist/
+build/
+*.d.ts
+
+# VSCode
+.vscode/
+
+# Logs
+*.log
+
+# Debug
+.vscode/
+
+# OS-specific files
+.DS_Store         # macOS
+Thumbs.db         # Windows
+
+# Rollup / Babel
+.rollup.cache/
+
+# Temporary files
+*.swp
+*.swo
+*.bak
+*.tmp
+*.idea/
+.idea/
+
+# Optional npm cache folder
+.npm/
+
+# Coverage directory from testing
+coverage/
+
+# JetBrains IDE files
+.idea/
+
+# Test output
+test/
+
+# TypeScript coverage
+tsconfig.tsbuildinfo
+
+# Miscellaneous
+*.tgz              # package tarballs (if you make any)
+

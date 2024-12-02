@@ -1,0 +1,89 @@
+{
+  "name": "taskworks",
+  "type": "module",
+  "version": "0.1.1",
+  "description": "TaskWorks is a flexible framework for task orchestration, messaging, and workflow management across distributed systems. Simplify your processes with seamless communication and coordination.",
+  "author": "Bahay Labs, LLC",
+  "license": "Apache-2.0",
+  "keywords": [
+    "task orchestration",
+    "workflow management",
+    "distributed systems",
+    "messaging",
+    "task scheduler",
+    "worker threads",
+    "web workers",
+    "asynchronous tasks",
+    "message passing",
+    "distributed workflows"
+  ],
+  "homepage": "https://github.com/bahay-labs/taskworks#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bahay-labs/taskworks.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bahay-labs/taskworks/issues"
+  },
+  "main": "dist/bundle.cjs.js",
+  "module": "dist/bundle.esm.js",
+  "browser": "dist/bundle.umd.js",
+  "types": "dist/types/index.d.ts",
+  "exports": {
+    "types": "./dist/types/index.d.ts",
+    "node": {
+      "import": "./dist/bundle.esm.js",
+      "require": "./dist/bundle.cjs.js",
+      "types": "./dist/types/index.d.ts"
+    },
+    "default": {
+      "import": "./dist/bundle.esm.js",
+      "require": "./dist/bundle.cjs.js",
+      "types": "./dist/types/index.d.ts"
+    },
+    "import": {
+      "import": "./dist/bundle.esm.js",
+      "require": "./dist/bundle.cjs.js",
+      "types": "./dist/types/index.d.ts"
+    },
+    "require": {
+      "import": "./dist/bundle.esm.js",
+      "require": "./dist/bundle.cjs.js",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "npx rollup -c",
+    "watch": "npx rollup -c --watch",
+    "build:workers": "npm run build:workflow-worker",
+    "build:workflow-worker": "npx rollup -c rollup.config.js --input src/workers/workflow-worker.ts",
+    "start": "node --loader ts-node/esm src/app.ts",
+    "start:build": "npm run build && node dist/app.js",
+    "prepublishOnly": "npm run build",
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "test:coverage": "jest --coverage"
+  },
+  "files": [
+    "dist/**/*",
+    "README.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "loglevel": "^1.9.2",
+    "messageworks": "^0.3.0",
+    "uuid": "^11.0.3"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.1",
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "@rollup/plugin-typescript": "^12.1.1",
+    "@types/node": "^22.9.3",
+    "rollup": "^4.27.3",
+    "rollup-plugin-dts": "^6.1.1",
+    "rollup-plugin-polyfill-node": "^0.13.0",
+    "ts-node": "^10.9.2",
+    "tslib": "^2.8.1",
+    "typescript": "^5.7.2"
+  }
+}
